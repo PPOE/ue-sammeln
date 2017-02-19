@@ -1,31 +1,33 @@
-
 UE Sammel Tool
+==============
 
-23.12.2016 - Peter Postmann 
+ErmÃ¶glicht das AusfÃ¼llen von UnterstÃ¼tzungserklÃ¤rungen sowie digitales signieren.
 
-Ermöglich das Ausfüllen von Unterstützungserklärungen sowie digitales signieren.
+23.12.2016 - Peter Postmann
 
+Struktur und Funktionsweise
+---------------------------
 
-index.php routet die Request
+- index.php routet die Request
+- start.php zeigt das initale front end
 
-start.php zeigt das initale front end
+Nach dem ausfÃ¼llen und absenden der Daten wir ein Arrangement gespeichert: Alle Daten die eingegeben wurden bekommen eine uuid zugeordnet.
 
-Nach dem ausfüllen und absenden der Daten wir ein Arrangement gespeichert: Alle Daten die eingegeben wurden bekommen eine uuid zugeordnet.
+Mittels dieser uuid wird aus dem PDF Template ein custom-pdf generiert. Diese werden nicht gespeichert. 
 
-Mittels dieser uuid wird aus dem PDF Template ein custom-pdf generiert. Dieser werden nicht gespeichert. 
+Im Falle der e-signatur wird dieses pdf an den bÃ¼rgerkarten server geschickt. dieser bietet die MÃ¶glichkeit zwei RÃ¼cksprungadressen (ok oder fehler) anzugeben.
 
-Im Falle der e-signatur wird dieses pdf and den bürgerkarten server geschickt. dieser bietet die Möglichkeit zwei Rücksprungadressen (ok oder fehler) anzugeben. 
+Beim Callback Ã¼bergibt dieser den Link auf das signierte pdf. Diese werden gespeichert.
 
-Beim Callback übergibt dieser den Link auf das signierte pdf. Diese werden gespeichert.
+Derzeit wird direkt auf die eSignaturseite weitergeleitet. Es ginge zwar auch, dass in einem iFrame oder Popup zu machen, die derzeitige LÃ¶sung kommt aber ohne JS aus.
 
-Derzeit wird direkt auf die eSignaturseite weitergeleitet. Es ginge zwar auch, dass in einem iFrame oder Popup zu machen, die derzeitige Lösung kommt aber ohne JS aus.
+ZusÃ¤tzlich wird im Arrangement eine E-Mail adresse (soferrn angegeben) und die Einwilligung zur Kontaktaufnahme erfasst.
 
-Zusätzlich wird im Arrangement eine E-Mail adresse (sofertn angegeben) und die Einwilligung zur Kontaktaufnahme erfasst.
+ToDos
+-----
 
-ToDos:
-- Viele Codeteile sind seher windig programmiert
-- Derzeit läuft alles ohne Datenbank
-- Admin UI 
-- Double Opt-In für E-Mail
-- Anbindung Drittsystem für postversand von UEs
-
+- Viele Codeteile sind sehr windig programmiert
+- Derzeit lÃ¤uft alles ohne Datenbank
+- Admin UI
+- Double Opt-In fÃ¼r E-Mail
+- Anbindung Drittsystem fÃ¼r postversand von UEs
